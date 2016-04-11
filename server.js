@@ -13,10 +13,10 @@ var port = process.env.PORT || 3000;        // set our port
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
-// app.use(function(req, res, next) {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   return next();
-// });
+app.use(function(req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "http://api.nuitdebout.fr");
+  return next();
+});
 
 app.use(compression());
 
@@ -111,5 +111,4 @@ app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
-var server = app.listen(port);
-server.timeout = 5000;
+app.listen(port);
